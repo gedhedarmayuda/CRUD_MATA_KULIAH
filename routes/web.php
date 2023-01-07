@@ -2,6 +2,8 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
+use App\Http\Controllers\KelasController;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -15,4 +17,11 @@
 
 $router->get('/', function () use ($router) {
     return $router->app->version();
+});
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('kelas', ['uses' => 'KelasController@showAllKelas']);
+    $router->get('kelas/{id_mata_kuliah}', ['uses' => 'KelasController@showOneKelas']);
+    $router->post('kelas', ['uses' => 'KelasController@createKelas']);
+    $router->delete('kelas/{id_mata_kuliah}', ['uses' => 'KelasController@deleteKelas']);
+    $router->put('kelas/{id_mata_kuliah}', ['uses' => 'KelasController@updateKelas']);
 });
