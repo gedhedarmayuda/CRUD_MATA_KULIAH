@@ -20,8 +20,8 @@ $router->get('/', function () use ($router) {
 });
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('kelas', ['uses' => 'KelasController@showAllKelas']);
-    $router->get('kelas/{id_mata_kuliah}', ['uses' => 'KelasController@showOneKelas']);
+    $router->get('kelas/{id}', ['uses' => 'KelasController@showOneKelas']);
     $router->post('kelas', ['uses' => 'KelasController@createKelas']);
-    $router->delete('kelas/{id_mata_kuliah}', ['uses' => 'KelasController@deleteKelas']);
-    $router->put('kelas/{id_mata_kuliah}', ['uses' => 'KelasController@updateKelas']);
+    $router->delete('kelas/{id}', ['uses' => 'KelasController@deleteKelas']);
+    $router->put('kelas/{id}', ['uses' => 'KelasController@updateKelas']);
 });
